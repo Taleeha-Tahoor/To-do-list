@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
+    <link rel="stylesheet" href="todolist.css">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="main">
+            <div class="input-container">
+                <i class="fa-regular fa-pen-to-square"></i>
+                <input type="text" id="text" placeholder="Add a New Task + Enter">
+            </div>
+           
+        <div class="options">
+            <p class="all">All</p>
+            <p class="pending">Pending</p>
+            <p class="completed">Completed</p>
+            <button type="button" class="btn">Clear All</button>
+        </div>
+
+        <div class="task-container">
+            <ul class="tasks"></ul>
+        </div>
+    </div>
+
+    <script src="todolist.js"></script>
+</body>
+</html>
