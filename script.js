@@ -1,9 +1,10 @@
-const textInput = document.querySelector("#text");
+const textInput = document.querySelector('#text');
 const tasks = document.querySelector(".tasks");
 const clear = document.querySelector(".btn");
 const allSection = document.querySelector(".all");
 const completedSection = document.querySelector(".completed");
 const pendingSection = document.querySelector(".pending");
+let error = document.querySelector(".error");
 
 let completedTasks = [];
 let pendingTasks = [];
@@ -13,6 +14,18 @@ textInput.addEventListener("keydown", event => {
     // event.preventDefault();
     if(event.key === "Enter"){
        
+        if (!textInput.value.trim()) {
+            error.textContent = "Please input a task";
+            return;
+        }
+        
+        if (allTasks.some(task => task.querySelector('label').textContent === textInput.value)) {
+            error.textContent = "Task already exists";
+            return;
+        }
+
+        error.textContent = ""; 
+
         const todoItem = document.createElement("li");
         todoItem.draggable = true;
 
@@ -20,7 +33,7 @@ textInput.addEventListener("keydown", event => {
         checkbox.type = "checkbox";
         checkbox.id = `checkbox-${Math.random().toString(36).substring(2, 15)}`;;
 
-        const label = document.createElement("label");
+        const label = document.createElement("label"); 
         label.appendChild(document.createTextNode(`${textInput.value}`));
         label.htmlFor = checkbox.id;
 
@@ -33,7 +46,7 @@ textInput.addEventListener("keydown", event => {
 
         todoItem.classList = "task"
         tasks.appendChild(todoItem);
-
+    
         allSection.style.color = 'red';
         textInput.value = "";
 

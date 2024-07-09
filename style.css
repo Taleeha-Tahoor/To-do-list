@@ -11,6 +11,12 @@ body{
     top: 30%;
     left: 35%;
 }
+.error{
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    color: red;
+}
 .input-container{
     width: 300px;
     position: relative;
@@ -75,3 +81,4 @@ padding-left: 40px;
 .dragging{
     opacity: 0.5;
 }
+
